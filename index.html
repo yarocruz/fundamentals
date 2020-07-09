@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fundamentals</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Let's Start with Variables</h1>
+        <p>In the beginning was the Word, and the Word was with God, and the Word was God.</p>
+
+        <p>If you gone already through some introductory overview of JavaScript, or any programming
+        language for that matter, they usually start with the types of values that a language can use. These are
+        "things" that the language already recognizes. In other words, there are primitive values that don't need
+         to be created by you the programmer. That's why you can just type a number, like 42, and the interpreter
+            / compiler doesn't need any further instructions to know it's a number.
+        </p>
+
+        <p>Of course there's nothing particularly useful about just typing a number and having a program
+            recognize it as a number. You can type a number in a REPL, or Chrome's console.log, and it will be ok.
+            It wont' yell at you and throw an error. But it won't do nothing with it. The point is that a lot of clever
+            computer science people standardize most of the typical values that you would use to be able to do computations on.
+            Back when machines where the size of buildings, some smart people figured out that if you type the number
+            4 and then type + and then type 4 again, the machine should immediately make that computation without having
+            to first explain to it what 4 is, what the plus sign is, and what to do with that. Think of it like a
+            calculator. The electrical engineers who made them made it possible for you to just press a combination of
+            buttons to be multiply without the user having to explain to the calculator what multiplication is.
+            This is probably more complicated than I'm understanding it, but again the idea is that there are primitive values that exist
+            already in a computer program, because they were made by God.
+        </p>
+
+        <p>So what does this have to do with variables? Well variables are ways for us to capture and label values
+        for later retrieval. In JavaScript there are three keywords you can use to declare a variable. I'm not gonna get
+        into the differences between them in this module, but they are:</p>
+
+        <ul>
+            <li>var</li>
+            <li>let</li>
+            <li>const</li>
+        </ul>
+
+        <code>
+            let something = 'a thing';
+        </code>
+
+        <p>The above snippet starts with the keyword let followed by the word something equal to the quote
+        'a thing'. The word something is the label, that's the name of the variable, and we are storing insided it
+        the string 'a thing'.</p>
+
+        <p>You can store in a variable different types of values like numbers, strings, boolean, undefined and null</p>
+
+        <code>
+            let number = 42;
+            let existenceOfGod = false;
+            let theVoid = null;
+        </code>
+
+        <p>Think of a variable as a container that holds a single thing. (It can hold more than one thing by the
+        way, but that's when you get into arrays and objects). </p>
+
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
