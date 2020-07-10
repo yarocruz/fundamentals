@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Variables</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>A bit more about Variables</h1>
+
+        <p>Lets do a refresher. To declare a variable in JavaScript you can use 3 keywords:</p>
+
+        <ul>
+            <li>var</li>
+            <li>let</li>
+            <li>const</li>
+        </ul>
+
+        <p>You can name a variable <em>almost</em> anything you want. There a couple of rules to keep in mind tho.
+        A variable can have a number in the name, but it can't start with a number.</p>
+
+        <pre>
+            <code>
+            var 8iscool = true; // not valid
+            </code>
+        </pre>
+
+        <p>That is an invalid name, so it will throw an error. As long as they start with a letter, or the
+        underscore character, then you can throw in a number.</p>
+
+        <pre>
+            <code>
+            var is_Cool8 = true; // valid
+            </code>
+        </pre>
+
+        <p>Another rule is that there can't be any special characters in it like ()*&^%$#@!,</p>
+
+        <p>The names you choose are case sensitive.</p>
+
+        <pre>
+            <code>
+            var is_Cool8 = true;
+            var IS_COOL8 = 'not the same';
+            var is_cool8 = 'different';
+            </code>
+        </pre>
+
+        <p>The above three variable declarations are totally different. Case sensitivity is important to keep
+        in mind because other languages are case <em>insensitive</em>. In PHP for example, a language used
+        for server side web development, function names are case insensitive. Have no idea why this is, but be
+        on the lookout for that.</p>
+
+        <p>The final rule is that you can't use reserved keyword. In other words, there are words or labels in the
+        language that are already taken.</p>
+
+        <pre>
+            <code>
+            let Infinity = infinity // not possible
+            </code>
+        </pre>
+
+        <p>You can however use the word <em>infinity</em> as a variable name because of case sensitivity.</p>
+
+        <p>You can take a look at the full list of reserved words in JavaScript <a href="https://www.w3schools.com/js/js_reserved.asp">here.</a></p>
+
+        <h2>Var vs Let vs Const and what exactly is the problem with Var</h2>
+
+        <p>This is the part where I'm still a bit fuzzy on, so bare with me. I've been reading Kyle Simpson's <a href="https://www.amazon.com/You-Dont-Know-JS-Yet-ebook/dp/B084BNMN7T/ref=sr_1_1?crid=1F0CLDOAPA56V&dchild=1&keywords=you+dont+know+js+yet&qid=1594406946&sprefix=you+dont+know+js%2Caps%2C170&sr=8-1">You Don't Know JS Yet book
+            series</a> and I kinda went back to understand what is supposedly wrong with var. According to Simpson,
+        there is nothing wrong with var. The only 'issue' with var, is that it <strong>can't</strong> get blocked scope, and that's an advanced
+        topic if you're just starting out. The ES6 people have pushed to always use let, and to always avoid using var
+        but Simpson says that as long as you understand var's limitation, you should still be using it when appropriate.</p>
+
+        <p>So, to not get too much in the weeds with this, because I'm only beginning to understand this, var and let
+        are pretty much equivalent when it comes to what they do, which is letting you store a value in a label you
+        create.</p>
+
+        <pre>
+            <code>
+            var label = 'one';
+            let pencil = 2;
+            </code>
+        </pre>
+
+        <p>In that context they both behave the same. However, the const variable has a more clear distinction.
+        What if I want to change the value 'one' on label variable later in the program. With var or let you
+        can do this like so:</p>
+
+        <pre>
+            <code>
+            label = 'two';
+            pencil = 3';
+            </code>
+        </pre>
+
+        <p>You can do that with variables declared with var and const. (Note that we don't have to use the keywords
+        again to change the value. Weirdly, you can say <em>var label = 'two'</em>; but you can't do that with let inside
+            a block scope.) With const on the other hand that's not possible. At least not directly.</p>
+
+        <pre>
+            <code>
+            const label = 'two';
+            label = 'three'; // not allowed
+            </code>
+        </pre>
+
+        <p>The above won't work, because it's interpreting that expression as you trying to <em>redeclare</em> the variable
+        . Keep in mind the word redeclare here. You can still change the value of a variable declared with const,
+        you just can't redeclare it.</p>
+
+        <p>Ok, so that's a bit confusing right? Let me see if I can break it down with some code lines:</p>
+
+        <pre>
+            <code>
+            var thing = 'value';
+            var thing = 'newValue'; // this can be done. the redeclaration here is explicit
+            thing = 'newValue'; // and this can be done because this is the shorter way of doing it, down here the redeclaration is implicit
+
+            let thing = 'value';
+            let thing = 'newValue';
+            thing = 'newValue'; // same rules apply here, but let has an exception of letting you redeclare explicitly when your within a block scope
+
+            const thing = 'value';
+            const thing = 'newValue'; // you definitely can't redeclare explicitly like this
+            thing = 'newValue'; // nor implicitly like this either.
+            </code>
+        </pre>
+
+        <p>So I think I'll leave it here. I recommend looking up the nuances between these
+        three ways of declaring variables. The takeaway and the thing to keep in mind is that no matter
+        which way you declare a variable, you can always change that value. The main difference with the const
+        keyword is that it wants that label to be unique. Once you create that label, it doesn't let you 'change'
+        that label. Variables declared with var and let, do let you, pun intended, change or redeclare the label.</p>
+
+
+    </div>
+
+
+    <script type="text/javascript" src="../assets/js/app.js"></script>
+</body>
+</html>
