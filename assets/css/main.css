@@ -3,10 +3,22 @@ body {
 }
 
 .main-container {
-    max-width: 960px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
 p {
     line-height: 1.6em;
+}
+
+pre {
+    line-height:1.2em;
+    background-size:2.4em 2.4em;
+    background-origin:content-box;
+    background-color: #eee;
+    /* some extra styles*/
+    padding:0 20px;
+    text-align:left;
+    font-family:calibri,arial,sans-serif;
+    overflow-x: auto;
 }
