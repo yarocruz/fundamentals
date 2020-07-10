@@ -28,12 +28,12 @@
             4 and then type + and then type 4 again, the machine should immediately make that computation without having
             to first explain to it what 4 is, what the plus sign is, and what to do with that. Think of it like a
             calculator. The electrical engineers who made them made it possible for you to just press a combination of
-            buttons to be multiply without the user having to explain to the calculator what multiplication is.
+            buttons and be able to multiply without the user having to explain to the calculator what multiplication is.
             This is probably more complicated than I'm understanding it, but again the idea is that there are primitive values that exist
             already in a computer program, because they were made by God.
         </p>
 
-        <p>So what does this have to do with variables? Well variables are ways for us to capture and label values
+        <p>So what does this have to do with variables? Well variables are ways for us to capture and label those values
         for later retrieval. In JavaScript there are three keywords you can use to declare a variable. I'm not gonna get
         into the differences between them in this module, but they are:</p>
 
@@ -43,9 +43,11 @@
             <li>const</li>
         </ul>
 
-        <code>
+        <pre>
+            <code>
             let something = 'a thing';
-        </code>
+            </code>
+        </pre>
 
         <p>The above snippet starts with the keyword let followed by the word something equal to the quote
         'a thing'. The word something is the label, that's the name of the variable, and we are storing insided it
@@ -53,14 +55,66 @@
 
         <p>You can store in a variable different types of values like numbers, strings, boolean, undefined and null</p>
 
-        <code>
+        <pre>
+            <code>
             let number = 42;
             let existenceOfGod = false;
             let theVoid = null;
-        </code>
+            </code>
+        </pre>
 
-        <p>Think of a variable as a container that holds a single thing. (It can hold more than one thing by the
-        way, but that's when you get into arrays and objects). </p>
+        <p>Think of a variable as a container that holds a single thing. (A variable can hold more than one thing by the
+        way, but I'll get into arrays and objects later). The cool thing know is that you can do things with them
+        later.</p>
+
+        <pre class="sentence">
+           <code>
+                In the beginning was the Word, and the Word was with God, and the Word was God.
+           </code>
+        </pre>
+
+        <p>Lest say that we want to replace the word <strong>Word</strong> with the word variable and the word
+        <strong>God</strong> with Programmer by pressing the button below.</p>
+
+        <button>Change Words</button>
+
+        <pre>
+        <code>
+        let keyword1 = 'Variable';
+        let keyword2 = 'Programmer';
+
+        let sentence = document.querySelector('.sentence');
+        let button = document.querySelector('button');
+
+        button.addEventListener('click', function () {
+        sentence.textContent = `
+        In the beginning was the ${keyword1}, and the ${keyword1} was with
+        ${keyword2}, and the ${keyword1}
+        was ${keyword2}.
+        `
+        })
+        </code>
+        </pre>
+
+        <p>If you take a look at the above code, you can see that most of the work is being done by variables. The
+        first two variables are holding the words 'Variable' and 'Programmer', which are two string values. The other
+        two values are holding references to two html elements. Then we reference the variable that we named
+            <strong>button</strong> and attach an event listener that listens for clicks. Once the button gets
+        clicked, the textContent of the <strong>sentence</strong> variable gets changed and within it we reference
+        the <strong>keyword1</strong> and <strong>keyword2</strong> variables that are holding the string 'Variable'
+        and 'Programmer'.</p>
+
+        <p>This is my very basic introduction to the very basics. There's a bit more to it and I recommend
+        digging a bit more on variables. I'll probably tackle the bits remaining.</p>
+
+        <p>Coming next: </p>
+
+        <ul>
+            <li>Rules for declaring variables</li>
+            <li>Declaring without assigning</li>
+            <li>Declaring multiple variables in one line</li>
+            <li>var vs let vs const</li>
+        </ul>
 
     </div>
 
