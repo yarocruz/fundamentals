@@ -91,8 +91,8 @@
 
         <p>This is the part where I'm still a bit fuzzy on, so bare with me. I've been reading Kyle Simpson's <a href="https://www.amazon.com/You-Dont-Know-JS-Yet-ebook/dp/B084BNMN7T/ref=sr_1_1?crid=1F0CLDOAPA56V&dchild=1&keywords=you+dont+know+js+yet&qid=1594406946&sprefix=you+dont+know+js%2Caps%2C170&sr=8-1">You Don't Know JS Yet book
             series</a> and I kinda went back to understand what is supposedly wrong with var. According to Simpson,
-        there is nothing wrong with var. The only 'issue' with var, is that it <strong>can't</strong> get blocked scope, and that's an advanced
-        topic if you're just starting out. The ES6 people have pushed to always use let, and to always avoid using var
+        there is nothing wrong with var. The only 'issue' with var, is that it <strong>doesn't get blocked scoped</strong>, and that's an advanced
+        topic if you're just starting out. The ES6 people have pushed to always use let, and to always avoid using var,
         but Simpson says that as long as you understand var's limitation, you should still be using it when appropriate.</p>
 
         <p>So, to not get too much in the weeds with this, because I'm only beginning to understand this, var and let
@@ -117,9 +117,21 @@
             </code>
         </pre>
 
-        <p>You can do that with variables declared with var and const. (Note that we don't have to use the keywords
-        again to change the value. Weirdly, you can say <em>var label = 'two'</em>; but you can't do that with let inside
-            a block scope.) With const on the other hand that's not possible. At least not directly.</p>
+        <p>You can do that with variables declared with var and let. (Note that we don't have to use the keywords
+        var or let again to change the value because that isn't allowed.</p>
+
+        <pre>
+            <code>
+            var label = 'one';
+            let pencil = 2;
+
+            let label = 'two';
+            let pencil = 3';
+            </code>
+        </pre>
+
+        <p>The above is not allowed because it won't redeclare the variable with a new value. It will interpret this
+        as trying to create a variable that already exists. Once a variable is created you can't duplicate it.</p>
 
         <pre>
             <code>
@@ -128,25 +140,22 @@
             </code>
         </pre>
 
-        <p>The above won't work, because it's interpreting that expression as you trying to <em>redeclare</em> the variable
-        . Keep in mind the word redeclare here. You can still change the value of a variable declared with const,
-        you just can't redeclare it.</p>
+        <p>The above won't work, because it's interpreting that expression as you trying to <em>reassign</em> the variable
+        . Keep in mind the word reassign here. You can still change the value of a variable declared with const,
+        you just can't reassign it.</p>
 
         <p>Ok, so that's a bit confusing right? Let me see if I can break it down with some code lines:</p>
 
         <pre>
             <code>
             var thing = 'value';
-            var thing = 'newValue'; // this can be done. the redeclaration here is explicit
-            thing = 'newValue'; // and this can be done because this is the shorter way of doing it, down here the redeclaration is implicit
+            thing = 'newValue'; // reassignment is allowed with variables declared with var
 
             let thing = 'value';
-            let thing = 'newValue';
-            thing = 'newValue'; // same rules apply here, but let has an exception of letting you redeclare explicitly when your within a block scope
+            thing = 'newValue'; // reassignment is allowed with variables declared with let
 
             const thing = 'value';
-            const thing = 'newValue'; // you definitely can't redeclare explicitly like this
-            thing = 'newValue'; // nor implicitly like this either.
+            thing = 'newValue'; // not allowed with variables declared with const
             </code>
         </pre>
 
