@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Fundamentals</title>
+</head>
+<body>
+    <!-- Target Div Container, this is where the app gets 'mounted' to. Or where your top level Component
+     will get plugged into when you use the ReactDOM.render function -->
+    <div id="root"></div>
+
+    <!-- Where gonna bring the two core libraries by linking to their CDN's. CDN stands for
+     content delivery network. It's essentially a server where you can access the
+     React JS library code -->
+
+    <!-- This one is just the basic React library -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <!-- This one is just the ReactDOM library -->
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- We'll write the JS, the React js, code in here -->
+    <script>
+        // So React is an object with many methods. This is a simplification. But for the purposes of
+        // understanding this, those are the basics.
+
+        /*
+            The React.createElement method here has three arguments
+            starting with the name of the element, an attribute(but in Reacts
+            case it's a property which can be anything really,) as an object which will
+            give the element an id of of yankees and the last argument is the children it
+            will have. This means that you can in the the third argument other
+            React.createElement calls:
+                React.createElement('div', { id: 'container'},
+                    React.createElement('h1', { id: 'yankees'}, 'New York Yankees')
+                    React.createElement('h1', { id: 'redsox'}, 'Boston Red Sox')
+                )
+            in the example below it will just add New York Yankees as the text content.
+         */
+        let team = React.createElement('h1', { id: 'yankees'}, 'New York Yankees')
+
+        let team2 = document.createElement('h1');
+
+        /*
+        Note: Elements created with React.createElement are not exactly "real" DOM elements.
+        I'm not entirely informed on this yet, but I believe they are more like a copy of a DOM
+        element. That's what I think people are referring to when they say that React has a
+        virtual DOM. If you look at the console log of team you get this:
+
+            $$typeof: Symbol(react.element)
+            key: null
+            props: {id: "yankees", children: "New York Yankees"}
+            ref: null
+            type: "h1"
+            _owner: null
+            _store: {validated: false}
+
+            I'm guessing here that the React.render looks at the type property and makes sure it's a valid
+            HTML element that can be used in the real DOM.
+
+            For example, if you do:
+                let team = React.createElement('pants', { id: 'yankees'}, 'New York Yankees')
+
+            In development mode, you get a red warning message saying that <pants> is unrecognized by
+            the browser and that 'If you meant to render a React component, start its name with an
+            uppercase letter in pants.'
+
+            This makes sense, because in the end, a component is just a collection of DOM elements.
+            React, nor the browser is going to put in the html a tag named <Pants>
+        */
+
+        console.log(team);
+        console.dir(team2);
+
+        /*
+        The React Dom render method is very simple. You give it any created React element as
+        a first argument, and the second argument does a regular DOM API selection to the div with
+        an id of root
+         */
+
+        ReactDOM.render(team, document.getElementById('root'));
+    </script>
+
+</body>
+</html>

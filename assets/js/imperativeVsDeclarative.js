@@ -57,15 +57,6 @@
 
 // 'function over values' -- basically we are using pure functions the return the values that we will need
 
-/*
-    We need a compose function to put this all together in a functional way
-    The compose function below takes functions as arguments and returns a single function.
-    In this implementation the spread operator is used to turn those function arguments into an array
-    called fns. A function is then returned that expects one argument, arg. When this function is invoked,
-    the fns array is pied starting with the argument we want to send through the function. The argument
-    becomes the initial value for compose, then each iteration of the reduced callback returns.
- */
-
 const oneSecond = () => 1000;
 const getCurrentTime = () => new Date();
 const clear = () => console.clear();
@@ -117,6 +108,15 @@ const prependZero = key => clockTime => ({
     ...clockTime,
     [key]: clockTime[key] < 10 ? '0' + clockTime[key] : clockTime[key]
 })
+
+/*
+    We need a compose function to put this all together in a functional way
+    The compose function below takes functions as arguments and returns a single function.
+    In this implementation the spread operator is used to turn those function arguments into an array
+    called fns. A function is then returned that expects one argument, arg. When this function is invoked,
+    the fns array is pied starting with the argument we want to send through the function. The argument
+    becomes the initial value for compose, then each iteration of the reduced callback returns.
+ */
 
 const compose = (...fns) => arg =>
     fns.reduce((composed, f) => f(composed), arg)
