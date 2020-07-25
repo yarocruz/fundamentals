@@ -29,7 +29,7 @@
         /*
             The React.createElement method here has three arguments
             starting with the name of the element, an attribute(but in Reacts
-            case it's a property which can be anything really,) as an object which will
+            case it's a property which can be anything really) as an object which will
             give the element an id of of yankees and the last argument is the children it
             will have. This means that you can in the the third argument other
             React.createElement calls:
@@ -78,6 +78,16 @@
         The React Dom render method is very simple. You give it any created React element as
         a first argument, and the second argument does a regular DOM API selection to the div with
         an id of root
+
+        That's the super basics of React. You could use React.createElement and 'construct' a page with
+        just that... but why would you do that instead if just writing all that in HTML. Exactly.. you
+        wouldn't. Since React is just JavaScript you can do more with those elements in one go. What
+        I mean with one go is that you don't have to completely separate your concerns and do double the work
+        of first making your HTML, and then later having to study that whole DOM structure you made
+        attaching JavaScript to it, doing a lot document.stuff to it. The thing the React introduced,
+        and what other frameworks have followed suit, is that it allows you to make Components. And Components
+        are just functions where you can group all those React.createElement calls. And functions are just
+        javascript.
          */
 
         ReactDOM.render(team, document.getElementById('root'));
