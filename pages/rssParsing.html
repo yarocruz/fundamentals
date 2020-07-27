@@ -21,13 +21,14 @@
             `https://whatthefuck.is/feed.xml`,
             http://feeds.feedburner.com/codinghorror?format=xml
             https://www.taniarascia.com/rss.xml
+            https://cprss.s3.amazonaws.com/javascriptweekly.com.xml
          */
         const CORS_PROXY = 'https://cors-anywhere.herokuapp.com/';
 
         let root = document.getElementById('app');
 
         let parser = new RSSParser();
-        parser.parseURL(`${CORS_PROXY}https://www.taniarascia.com/rss.xml`, function (err, feed) {
+        parser.parseURL(`${CORS_PROXY}https://cprss.s3.amazonaws.com/javascriptweekly.com.xml`, function (err, feed) {
             if (err) throw err;
             console.log(feed)
             console.log(feed.title);
@@ -39,7 +40,6 @@
                 link.setAttribute('href', item.link)
                 content.innerHTML = item['content:encoded'];
                 root.appendChild(title);
-                root.appendChild(content);
                 title.appendChild(link);
             })
         });
