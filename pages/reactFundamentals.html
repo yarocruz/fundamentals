@@ -91,6 +91,29 @@
          */
 
         ReactDOM.render(team, document.getElementById('root'));
+
+        // scratch code
+        app.post('user:id', (req, res) => {
+
+        })
+
+        const signInAuthentication = (db, bcrypt) => (req, res) => {
+            const { authorization } = req.headers;
+        } // function that returns another function
+
+        const signToken = (email) => {
+            const jwtPayload = {email}
+            return jwt.sign(jwtPayload, process.env.SECRET)
+        }
+
+        const createSessions = (user) => {
+            const { email, id} = user;
+            const token = signToken(email);
+        }
+
+        saveAuth = () => {
+
+        }
     </script>
 
 </body>
