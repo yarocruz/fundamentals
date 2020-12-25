@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Happy Holidays</title>
+</head>
+<style>
+    body {
+        font-family: "Helvetica Neue", sans-serif;
+        background-color: red;
+        color: white;
+    }
+    #message {
+        font-size: 60px;
+        margin: 50vh 0;
+        text-align: center;
+    }
+
+</style>
+<body>
+    <h1 id="message">Merry</h1>
+
+    <script>
+
+        // i want each letter to a different in an interval
+        let message = document.getElementById('message')
+
+        function changeLetters() {
+            setInterval(() => {
+                if (message.textContent === 'Merry') {
+                    message.textContent = 'Christmas'
+                } else {
+                    message.textContent = 'Merry'
+                }
+            }, 1000)
+        }
+
+        changeLetters()
+
+    </script>
+
+</body>
+</html>
